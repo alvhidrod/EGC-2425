@@ -1,6 +1,7 @@
 name: Run tests
 
 on:
+  workflow_dispatch
   push:
     branches: [config/ci]
 
@@ -46,7 +47,7 @@ jobs:
         MARIADB_PASSWORD: uvlhub_password
       run: |
         pytest app/modules/ --ignore-glob='*selenium*'
-        
+
     - name: outdated_dependencies
       run: |
         pip list --outdated
